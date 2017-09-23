@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ChecklistViewController.swift
 //  CheckLists
 //
 //  Created by Joe Crescenzi on 9/23/17.
