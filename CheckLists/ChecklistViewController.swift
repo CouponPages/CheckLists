@@ -8,9 +8,11 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController
+{
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -20,17 +22,38 @@ class ChecklistViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return 100
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        if let cell = tableView.cellForRow(at: indexPath)
+        {
+            if cell.accessoryType == .none
+            {
+                cell.accessoryType = .checkmark
+            }
+            else
+            {
+                cell.accessoryType = .none
+            }
+        }
+        
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChecklistItem", for: indexPath)
@@ -38,15 +61,15 @@ class ChecklistViewController: UITableViewController {
         // Add the following code
         let label = cell.viewWithTag(1000) as! UILabel
         
-        if indexPath.row == 0
+        if indexPath.row % 5 == 0
             { label.text = "Walk the dog" }
-        else if indexPath.row == 1
+        else if indexPath.row % 5 == 1
             { label.text = "Brush my teeth" }
-        else if indexPath.row == 2
+        else if indexPath.row % 5 == 2
             { label.text = "Learn iOS development" }
-        else if indexPath.row == 3
+        else if indexPath.row % 5 == 3
             { label.text = "Soccer practice" }
-        else if indexPath.row == 4
+        else if indexPath.row % 5 == 4
             { label.text = "Eat ice cream" }
         // End of new code block
         
