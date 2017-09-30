@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,20 +63,38 @@
         <scene sceneID="iab-kO-Kll">
             <objects>
                 <tableViewController id="kpu-TI-sHO" customClass="AddItemViewController" customModule="CheckLists" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lko-gh-y6E">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Lko-gh-y6E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aCQ-a5-skW">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCQ-a5-skW" id="aVk-Kg-9Cw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="fL5-Qa-YdF">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aCQ-a5-skW">
+                                        <rect key="frame" x="0.0" y="35" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCQ-a5-skW" id="aVk-Kg-9Cw">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-hh-YfM">
+                                                    <rect key="frame" x="3" y="3" width="314" height="37.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="yzs-hh-YfM" secondAttribute="trailing" constant="3" id="SPC-PM-myn"/>
+                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="leading" secondItem="aVk-Kg-9Cw" secondAttribute="leading" constant="3" id="dMq-E2-sGg"/>
+                                                <constraint firstAttribute="bottom" secondItem="yzs-hh-YfM" secondAttribute="bottom" constant="3" id="fM6-Ed-wGg"/>
+                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="top" secondItem="aVk-Kg-9Cw" secondAttribute="top" constant="3" id="jwb-CT-Kug"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="kpu-TI-sHO" id="4jG-9d-Wei"/>
                             <outlet property="delegate" destination="kpu-TI-sHO" id="0Ng-cb-HqC"/>
