@@ -10,6 +10,8 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +22,11 @@ class AddItemViewController: UITableViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        textField.becomeFirstResponder()
+    }
+    
     
     @IBAction func cancel()
     {
@@ -28,13 +35,14 @@ class AddItemViewController: UITableViewController {
     
     @IBAction func done()
     {
+        print("You entered \(textField.text!)")
         navigationController?.popViewController(animated: true)
     }
 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
-
+    
+    
 }

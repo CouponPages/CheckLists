@@ -70,25 +70,28 @@
                         <sections>
                             <tableViewSection id="fL5-Qa-YdF">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="aCQ-a5-skW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="aCQ-a5-skW">
                                         <rect key="frame" x="0.0" y="35" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aCQ-a5-skW" id="aVk-Kg-9Cw">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-hh-YfM">
-                                                    <rect key="frame" x="3" y="3" width="314" height="37.5"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the Item..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-hh-YfM">
+                                                    <rect key="frame" x="10" y="10" width="300" height="23.5"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="kpu-TI-sHO" eventType="editingDidEndOnExit" id="G4P-wR-WwO"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="yzs-hh-YfM" secondAttribute="trailing" constant="3" id="SPC-PM-myn"/>
-                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="leading" secondItem="aVk-Kg-9Cw" secondAttribute="leading" constant="3" id="dMq-E2-sGg"/>
-                                                <constraint firstAttribute="bottom" secondItem="yzs-hh-YfM" secondAttribute="bottom" constant="3" id="fM6-Ed-wGg"/>
-                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="top" secondItem="aVk-Kg-9Cw" secondAttribute="top" constant="3" id="jwb-CT-Kug"/>
+                                                <constraint firstAttribute="trailing" secondItem="yzs-hh-YfM" secondAttribute="trailing" constant="10" id="SPC-PM-myn"/>
+                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="leading" secondItem="aVk-Kg-9Cw" secondAttribute="leading" constant="10" id="dMq-E2-sGg"/>
+                                                <constraint firstAttribute="bottom" secondItem="yzs-hh-YfM" secondAttribute="bottom" constant="10" id="fM6-Ed-wGg"/>
+                                                <constraint firstItem="yzs-hh-YfM" firstAttribute="top" secondItem="aVk-Kg-9Cw" secondAttribute="top" constant="10" id="jwb-CT-Kug"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -112,6 +115,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="yzs-hh-YfM" id="YJu-al-l19"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w4v-vu-GXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
