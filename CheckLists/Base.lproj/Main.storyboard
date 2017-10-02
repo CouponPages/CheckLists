@@ -110,7 +110,7 @@
                                 <action selector="cancel" destination="kpu-TI-sHO" id="SaY-Vn-ZkR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="XOX-Dp-GO7">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="XOX-Dp-GO7">
                             <connections>
                                 <action selector="done" destination="kpu-TI-sHO" id="7Mn-tT-ljp"/>
                             </connections>
