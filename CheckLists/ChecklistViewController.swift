@@ -10,11 +10,11 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate
 {
-    func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    func addItemViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController(_ controller: AddItemViewController, didFinishAdding item: ChecklistItem) {
+    func addItemViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
@@ -25,7 +25,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         navigationController?.popViewController(animated: true)
     }
     
-    func addItemViewController( _ controller: AddItemViewController, didFinishEditing item: ChecklistItem)
+    func addItemViewController( _ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
     {
         if let index = items.index(of: item)
         {
@@ -47,13 +47,13 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         if segue.identifier == "AddItem"
         {
             // 2
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             // 3
             controller.delegate = self
         }
         else if segue.identifier == "EditItem"
         {
-            let controller = segue.destination as! AddItemViewController
+            let controller = segue.destination as! ItemDetailViewController
             controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
                 controller.itemToEdit = items[indexPath.row]
