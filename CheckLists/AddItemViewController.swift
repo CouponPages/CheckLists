@@ -21,6 +21,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
     weak var delegate: AddItemViewControllerDelegate?
+    var itemToEdit: ChecklistItem?
     
     //
     //
@@ -30,6 +31,11 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate
         if #available(iOS 11.0, *)
         {
             navigationItem.largeTitleDisplayMode = .never
+        }
+        
+        if let item = itemToEdit {
+            title = "Edit Item"
+            textField.text = item.text
         }
         
     }

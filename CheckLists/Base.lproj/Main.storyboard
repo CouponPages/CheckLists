@@ -46,6 +46,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="kpu-TI-sHO" kind="show" identifier="EditItem" trigger="accessoryAction" id="pWs-kB-paz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -150,4 +153,7 @@
             <point key="canvasLocation" x="-654" y="101"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pWs-kB-paz"/>
+    </inferredMetricsTieBreakers>
 </document>
