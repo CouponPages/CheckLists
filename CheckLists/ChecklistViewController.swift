@@ -14,17 +14,73 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         navigationController?.popViewController(animated: true)
     }
     
+    func documentsDirectory() -> URL
+    {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    //
+    //
+    func dataFilePath() -> URL
+    {
+        return documentsDirectory().appendingPathComponent("Checklists.plist")
+    }
+    
+    //
+    //
     func ItemDetailViewController(_ controller: ItemDetailViewController, didFinishAdding item: ChecklistItem) {
         let newRowIndex = items.count
         items.append(item)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
-        
+        saveCheckListItems()
         
         navigationController?.popViewController(animated: true)
     }
     
+    func loadCheckListItems()
+    {
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path)
+        {
+            let decoder = PropertyListDecoder()
+            do
+            {
+                items = try decoder.decode([ChecklistItem].self, from: data)
+            }
+            catch
+            {
+                print("Error decoding item array!")
+            }
+            
+        }
+    }
+    
+    
+    //
+    //
+    func saveCheckListItems()
+    {
+        // 1
+        let encoder = PropertyListEncoder()
+        // 2
+        do
+        {
+            let data = try encoder.encode(items)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        }
+        catch
+        {
+            print("Error encoding item array!")
+        }
+        
+    }
+    
+    
+    //
+    //
     func ItemDetailViewController( _ controller: ItemDetailViewController, didFinishEditing item: ChecklistItem)
     {
         if let index = items.index(of: item)
@@ -37,11 +93,13 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             }
             
         }
+        saveCheckListItems()
         navigationController?.popViewController(animated:true)
         
     }
     
-    
+    //
+    //
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 1
         if segue.identifier == "AddItem"
@@ -86,6 +144,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveCheckListItems()
     }
     
 
@@ -119,6 +178,10 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         items.append(row4item)
 
         super.init(coder: aDecoder)
+        
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
+        
     }
     
     
@@ -195,6 +258,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             configureText(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        saveCheckListItems()
     }
     
 
