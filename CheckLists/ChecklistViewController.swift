@@ -10,6 +10,24 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate
 {
+
+    var items = [ChecklistItem]()
+    
+    @IBAction func addItem()
+    {
+        let newRowIndex = items.count
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = false
+        items.append(item)
+        
+        let indexPath = IndexPath(row: newRowIndex, section: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRows(at: indexPaths, with: .automatic)
+        
+
+    }
+
     func ItemDetailViewControllerDidCancel(_ controller: ItemDetailViewController) {
         navigationController?.popViewController(animated: true)
     }
@@ -121,23 +139,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     
-    var items: [ChecklistItem]
     
-    @IBAction func addItem()
-    {
-        let newRowIndex = items.count
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = false
-        items.append(item)
-        
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        
-
-    }
-
+    
     override func tableView( _ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath )
     {
         items.remove(at: indexPath.row)
@@ -150,6 +153,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
 
     required init?(coder aDecoder: NSCoder)
     {
+        super.init(coder: aDecoder)
+            /*
         items = [ChecklistItem]()
         
         let row0item = ChecklistItem()
@@ -177,13 +182,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         row4item.checked = true
         items.append(row4item)
 
-        super.init(coder: aDecoder)
-        
+ 
         print("Documents folder is \(documentsDirectory())")
         print("Data file path is \(dataFilePath())")
-        
+            */
     }
-    
+
     
     
     override func viewDidLoad()
@@ -194,6 +198,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         } else {
             // Fallback on earlier versions
         }
+        
+        loadCheckListItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
