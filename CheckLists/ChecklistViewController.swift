@@ -151,42 +151,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
 
-    required init?(coder aDecoder: NSCoder)
-    {
-        super.init(coder: aDecoder)
-            /*
-        items = [ChecklistItem]()
-        
-        let row0item = ChecklistItem()
-        row0item.text = "Walk the dog"
-        row0item.checked = false
-        items.append(row0item)
-        
-        let row1item = ChecklistItem()
-        row1item.text = "Brush my teeth"
-        row1item.checked = true
-        items.append(row1item)
-
-        let row2item = ChecklistItem()
-        row2item.text = "Learn iOS development"
-        row2item.checked = true
-        items.append(row2item)
-
-        let row3item = ChecklistItem()
-        row3item.text = "Soccer practice"
-        row3item.checked = false
-        items.append(row3item)
-
-        let row4item = ChecklistItem()
-        row4item.text = "Eat ice cream"
-        row4item.checked = true
-        items.append(row4item)
-
- 
-        print("Documents folder is \(documentsDirectory())")
-        print("Data file path is \(dataFilePath())")
-            */
-    }
 
     
     
