@@ -158,7 +158,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     {
         super.viewDidLoad()
         if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationBar.prefersLargeTitles = false
         } else {
             // Fallback on earlier versions
         }
