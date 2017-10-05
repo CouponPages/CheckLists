@@ -62,7 +62,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of List" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ixm-TN-KYn">
-                                                    <rect key="frame" x="5" y="5" width="310" height="33.5"/>
+                                                    <rect key="frame" x="5" y="5" width="309" height="33.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -72,7 +72,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Ixm-TN-KYn" secondAttribute="trailing" constant="5" id="FsC-LO-gCh"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ixm-TN-KYn" secondAttribute="trailing" constant="6" id="FsC-LO-gCh"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ixm-TN-KYn" secondAttribute="bottom" constant="5" id="KlI-tm-4lR"/>
                                                 <constraint firstItem="Ixm-TN-KYn" firstAttribute="leading" secondItem="iDL-z2-jZY" secondAttribute="leading" constant="5" id="dp6-2y-FH1"/>
                                                 <constraint firstItem="Ixm-TN-KYn" firstAttribute="top" secondItem="iDL-z2-jZY" secondAttribute="top" constant="5" id="xE6-5J-vie"/>
