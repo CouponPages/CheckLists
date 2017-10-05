@@ -76,5 +76,20 @@ class ListDetailViewController: UITableViewController, UITextFieldDelegate
         }
     }
     
+    // MARK:- UITableView Delegates
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath?
+    {
+        return nil
+    }
+    
+    // MARK:- UITextField Delegates
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String ) -> Bool
+    {
+        let oldText = textField.text!
+        let stringRange = Range(range, in:oldText)!
+        let newText = oldText.replacingCharacters(in: stringRange, with: string)
+        doneBarButton.isEnabled = !newText.isEmpty
+        return true
+    }
 }
