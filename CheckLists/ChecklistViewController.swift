@@ -12,6 +12,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
 {
 
     var items = [ChecklistItem]()
+    var checklist: Checklist!
     
     @IBAction func addItem()
     {
@@ -140,7 +141,6 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     
     
-    
     override func tableView( _ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath )
     {
         items.remove(at: indexPath.row)
@@ -164,11 +164,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
         
         loadCheckListItems()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        title = checklist.name
     }
 
     override func didReceiveMemoryWarning()
